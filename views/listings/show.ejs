@@ -1,0 +1,193 @@
+<% layout("listings/layouts/boilerplate") %>
+
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <h1><%= listing.title%>:</h1>
+    <div class="card listing-card" style="width: 50rem;">
+        
+  <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="listing_img">
+  <div class="card-body">
+    
+    <p class="card-text"> 
+        <p>Owned by <%= listing.owner.username %></p>
+         
+         <%= listing.description%><br>
+         &#8377;<%= listing.price.toLocaleString("en-IN")%><br>
+        <%= listing.location%><br>
+        <%= listing.country%><br>
+        
+    </p>
+  </div>
+  </div>
+  </div>
+
+    </div>
+
+    
+    <div class="btns">
+    <a href="/listings/<%= listing._id%>/edit" class="btn btn-primary col-1 offset-2">EDIT </a>
+    
+
+    <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST">
+        <button class=" btn btn-danger">DELETE</button>
+    </form>
+    </div>
+ 
+
+    <hr>
+
+
+    <div class="col-8 offset-2 mb-3">
+    <% if(currUser){%>
+
+      <h4>Leave a Review</h4>
+      <form action="/listings/<%=listing.id%>/reviews" method="POST" novalidate class="needs-validation">
+        <!-- <div class="mb-3 mt-3">
+          <label for="rating" class="form-lebel">Rating</label>
+          <input type="range" min="1" max="5" id="rating" name="review[rating]" class="form-range "> -->
+        <!-- </div> -->
+
+        <div class="mb-3 mt-3">
+          <label for="rating" class="form-lebel">Rating:</label>
+
+        <fieldset class="starability-slot">
+        
+         <input type="radio" id="no-rate" class="input-no-rate" name="review[rating]" value="1" checked aria-label="No rating." />
+        <input type="radio" id="first-rate1" name="review[rating]" value="1" />
+        <label for="first-rate1" title="Terrible">1 star</label>
+       <input type="radio" id="first-rate2" name="review[rating]" value="2" />
+       <label for="first-rate2" title="Not good">2 stars</label>
+      <input type="radio" id="first-rate3" name="review[rating]" value="3" />
+       <label for="first-rate3" title="Average">3 stars</label>
+      <input type="radio" id="first-rate4" name="review[rating]" value="4" />
+      <label for="first-rate4" title="Very good">4 stars</label>
+      <input type="radio" id="first-rate5" name="review[rating]" value="5" />
+      <label for="first-rate5" title="Amazing">5 stars</label>
+    </fieldset>
+    </div>
+
+        <div class="mb-3 mt-3">
+          <label for="comment" class="form-lebel">Comments</label>
+          <textarea name="review[comment]" id="comment" cols="30" rows="5" class="form-control" required="true"></textarea>
+          <div class="invalid-feedback">please add some comments for reviews</div>
+
+        </div>
+        <button class="btn btn-secondary">SUBMIT</button>
+      </form>
+      <%} %>
+      <hr>
+      
+     <% if(listing.reviews.length>0){%>
+    <p><b>ALL REVIEWS</b></p>
+      <div class="row">
+      <% for(review of listing.reviews){%>
+          <div class="card col-6 ">
+          <div class="card-body">
+            <h5 class="class-title">@<%=review.author.username%></h5>
+            <p class="starability-result card-text" data-rating="<%=review.rating%>"></p>
+            <p class="card-text"><%=review.comment%></p>
+            <form class="mb-3" method="POST" action="/listings/<%=listing.id%>/reviews/<%=review.id%>?_method=DELETE">
+              <button class="btn btn-sm btn-dark">Delete</button>
+            </form>
+          </div>
+          </div>          
+       <%}%>
+        </div>
+      <%}%>
+
+
+        <div class="col-8 offset-0">
+          <h3>Where you'll be!!</h3>
+           
+          <div id="map" style="width: 800px; height: 300px"></div>
+        
+        <script>
+    // ✅ Use coordinates from listing
+     const coords = <%- JSON.stringify(listing.geometry?.coordinates || [0,0]) %>;
+  const lat = coords[1];
+  const lon = coords[0];
+
+  console.log("Lat:", lat, "Lon:", lon);
+
+    const map = L.map('map').setView([lat, lon], 9);
+
+    // ✅ Use OpenStreetMap tiles (via MapLibre style or OSM directly)
+    L.maplibreGL({
+      style: 'https://tiles.openfreemap.org/styles/bright'
+    }).addTo(map);
+
+    // ✅ Add marker
+    L.marker([lat, lon])
+      .addTo(map)
+      .bindPopup("<%= listing.location %>, <%= listing.country %>")
+      .openPopup();
+</script>
+          </div>
+
+    
+  
+
+  
+
+
+
+
+
+
+
+<form action="/book/<%= listing._id %>" method="POST" id="bookingForm" class="p-3 border rounded bg-light shadow-sm">
+  <h4>Book this place</h4>
+
+  <div class="mb-3">
+    <label class="form-label">Check-in:</label>
+    <input type="date" name="checkIn" id="checkIn" class="form-control" required>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">Check-out:</label>
+    <input type="date" name="checkOut" id="checkOut" class="form-control" required>
+  </div>
+
+  <div class="mb-3 p-2 bg-white rounded shadow-sm">
+    <strong>Total Price:</strong>
+    <span id="totalPrice" class="text-success fs-5">Rs0</span>
+  </div>
+
+  <button type="submit" class="btn btn-primary w-100">Book Now (Cash on Delivery)</button>
+</form>
+
+<script>
+  const pricePerNight = <%= listing.price %>; // Price from DB
+  const checkInInput = document.getElementById("checkIn");
+  const checkOutInput = document.getElementById("checkOut");
+  const totalPriceSpan = document.getElementById("totalPrice");
+
+  function calculatePrice() {
+    const checkIn = new Date(checkInInput.value);
+    const checkOut = new Date(checkOutInput.value);
+
+    if (checkIn && checkOut && checkOut > checkIn) {
+      const diffTime = checkOut - checkIn;
+      const nights = diffTime / (1000 * 60 * 60 * 24); // days between
+      const total = nights * pricePerNight;
+      totalPriceSpan.textContent = `$${total}`;
+    } else {
+      totalPriceSpan.textContent = "Rs0";
+    }
+  }
+
+  checkInInput.addEventListener("change", calculatePrice);
+  checkOutInput.addEventListener("change", calculatePrice);
+</script>
+
+
+    
+
+
+    </div>
+
+<script src="/js/script.js"></script>
+    
+    
+</body>

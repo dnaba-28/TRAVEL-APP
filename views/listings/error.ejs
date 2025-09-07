@@ -1,0 +1,11 @@
+<% layout("listings/layouts/boilerplate") %>
+
+<div class="row">
+<div class="alert alert-danger  " role="alert">
+  
+  <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
+  
+   <h4 class="alert-heading" ><%=err.message%></h4>
+   <p><%=err.stack%></p>
+  </div>
+  </div>

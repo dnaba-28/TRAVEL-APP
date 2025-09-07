@@ -1,0 +1,69 @@
+<% layout("listings/layouts/boilerplate") %>
+
+<body>
+    <div class="row">
+        <div class="col-8 offset-2">
+    <h1>EDIT YOUR LISTING</h1>
+    <form method="POST"
+     action="/listings/<%=listing._id%>?_method=PUT"  
+        class="needs-validation" novalidate 
+        enctype="multipart/form-data">
+
+        <div class="mb-3">
+        <label for="title" class="form-lebel">Title</label>
+        <input type="text" name="title" value="<%=listing.title%>" class="form-control" required>
+        <div class="valid-feedback">Title Looks good!</div>
+
+        </div >
+        
+        <div class="mb-3">
+        <label for="description" class="form-lebel">Description</label>
+
+         <textarea  name="description" class="form-control" required><%=listing.description%> </textarea>
+         <div class="invalid-feedback">please enter a short description!</div>
+
+         </div>
+        <div class="row">
+        <div class="mb-3 col-4">
+        <label for="price" class="form-lebel">Price</label>
+
+         <input   name="price" value="<%=listing.price%>" class="form-control" required>
+         <div class="invalid-feedback">please enter a valid price!</div>
+
+         </div>
+         <div class="mb-3 col-6">
+        <label for="country" class="form-lebel">Country</label>
+
+         <input type="text" name="country" value="<%=listing.country%>" class="form-control" required>
+         <div class="invalid-feedback">country name should be valid!</div>
+
+         </div>
+         </div>
+        
+        <div >
+        <label for="location" class="form-lebel">Location</label>
+
+         <input type="text" name="location" value="<%=listing.location%>" class="form-control" required>
+         <div class="invalid-feedback">location should be valid!</div>
+
+         </div>
+
+         <div>
+            <br>Original Listing image</br>
+            <img src="<%=listing.image.url%>" style="width:10rem">
+         </div>
+       <div >
+        <label for="image" class="form-lebel"> Upload New Image</label>
+
+         <input type="file" name="image" value="<%=listing.image%>" class="form-control">
+         <div class="invalid-feedback">Enter a valid link!</div>
+
+         </div>
+        
+        <button class="btn btn-danger mt-3">add</button>
+    </form>
+    </div>
+</div>
+
+<script src="/js/script.js"></script>
+</body>
