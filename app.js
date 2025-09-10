@@ -167,6 +167,11 @@ app.use((err,req,res,next)=>{
     res.render("listings/error.ejs",{err});
     
  });
-app.listen(9000,()=>{
-    console.log("app is listening on port 9000");
+// app.listen(9000,()=>{
+    // console.log("app is listening on port 9000");
+// });
+
+const PORT = process.env.PORT || 9000;
+app.listen(PORT, () => {
+  console.log(`app is listening on port ${PORT}`);
 });
