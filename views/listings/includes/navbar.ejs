@@ -21,20 +21,21 @@
 
 <nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
   <div class="container-fluid">
-    <a class="navbar-brand" href="/listings"><i class="fa-solid fa-compass"></i></a>
+    <a class="navbar-brand fw-bold text-danger" href="/listings"><i class="fa-solid fa-compass"></i></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" >
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        
+      <ul class="navbar-nav me-auto mb-2 mb-md-0">
+        <li class="nav-item">
         <a class="nav-link" href="/listings">Explore</a>
-        
-      </div>
+        </li>
+        </ul>
+      
 
-<div class="navbar-nav  ms-auto">
+<!-- <div class="navbar-nav  ms-auto"> -->
 
-    <form class="d-flex" role="search">
+    <form class="d-flex me-3" role="search">
       <input class="form-control me-2 search" type="search" placeholder="Search destination" />
       <button class="btn btn-search" type="submit"><i class="fa-brands fa-searchengin"></i></button>
     </form>
@@ -44,21 +45,23 @@
 
 
 
-</div>
+<!-- </div> -->
 
 
-      <div class="navbar-nav ms-auto">
+      <ul class="navbar-nav mb-2 mb-md-0">
+        <li class="nav-item">
         <a class="nav-link" href="/listings/new">Wanderapp Your Place</a>
-
+       </li>
         <% if(!currUser) {%>
-        <a class="nav-link "  href="/signup"><b>signup</b></a>
-        <a class="nav-link" href="/login"><b>login</b></a>
+        <li class="nav-item"><a class="nav-link fw-bold"  href="/signup"><b>signup</b></a></li>
+        <li class="nav-item"><a class="nav-link fw-bold" href="/login"><b>login</b></a></li>
         <% } %>
         <% if(currUser){%>
-        <a class="nav-link" href="/logout"><b>logout</b></a>
+        <li class="nav-item"><a class="nav-link fw-bold" href="/logout"><b>logout</b></a></li>
         <% } %>
         
-      </div>
+        </ul>
+        </div>
     </div>
   </div>
 </nav>
