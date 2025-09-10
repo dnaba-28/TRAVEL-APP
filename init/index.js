@@ -1,3 +1,8 @@
+if(process.env.NODE_env != "production"){
+require('dotenv').config();
+
+};
+
 const mongoose=require("mongoose");
 const initData=require("./data.js");
 const Listing=require("../models/listing.js");
@@ -9,7 +14,7 @@ main()
 .then(()=>{
     console.log("connected to db");
 })
-.catch(()=>{
+.catch((err)=>{
     console.log(err);
 });
 
