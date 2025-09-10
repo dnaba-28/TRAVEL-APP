@@ -91,7 +91,6 @@ passport.deserializeUser(User.deserializeUser());
 //     res.send("app is working.........");
 // });
 
-// Redirect root ("/") to listings page
 app.get("/", (req, res) => {
   res.redirect("/listings");  
 });

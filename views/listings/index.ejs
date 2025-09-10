@@ -5,6 +5,7 @@
     <!-- <form action="/listings/new" method="GET">
         <button>create new listing!</button>
     </form> -->
+    <div class="container my-4">
 
     <div id="filters">
         <div class="filter">
@@ -12,15 +13,15 @@
         </div>
 
     </div>
-    <div class="row row-cols-lg-3 row-col-md-2 row-col-sm-1">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-md-2 g-4">
         <% for(let listing of allListings){ %>
         <a href="/listings/<%=listing._id%>" class="listing-link">
 
      <div class="card listing-card" >
-     <img src="<%=listing.image.url%>" class="card-img-top" alt="listing-image" style="height: 20rem;">
+     <img src="<%=listing.image.url%>" class="card-img-top img-fluid" alt="listing-image" >
      <div class="card-img-overlay">enjoy</div>
      <div class="card-body">
-    <p class="card-text">
+    <p class="card-text text-muted mb-0">
        <b> <%=listing.title%></b><br>
        
        &#8377; <%=(listing.price||0).toLocaleString("en-IN")%>/night
@@ -42,5 +43,5 @@
 
        <%  } %>
     </ul> -->
-
+</div>
 </body>

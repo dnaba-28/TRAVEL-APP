@@ -1,21 +1,24 @@
 <% layout("listings/layouts/boilerplate") %>
 
 <body>
+  <div class="container my-4">
     <div class="row">
-        <div class="col-8 offset-2">
-    <h1><%= listing.title%>:</h1>
-    <div class="card listing-card" style="width: 50rem;">
+    
+
+        <div class="col-12 col-md-8 mx-auto">
+    <h1 class="mb-3"><%= listing.title%>:</h1>
+    <div class="card listing-card shadow-sm" >
         
-  <img src="<%=listing.image.url%>" class="card-img-top show-img" alt="listing_img">
+  <img src="<%=listing.image.url%>" class="card-img-top show-img img-fluid" alt="listing_img">
   <div class="card-body">
     
     <p class="card-text"> 
-        <p>Owned by <%= listing.owner.username %></p>
+        <p class="mb-1">Owned by <%= listing.owner.username %></p>
          
-         <%= listing.description%><br>
-         &#8377;<%= listing.price.toLocaleString("en-IN")%><br>
-        <%= listing.location%><br>
-        <%= listing.country%><br>
+         <p><%= listing.description%></p>
+         <p>&#8377;<%= listing.price.toLocaleString("en-IN")%></p>
+        <p class="fw-bold text-success"><%= listing.location%></p>
+       <p> <%= listing.country%></p>
         
     </p>
   </div>
@@ -24,21 +27,29 @@
 
     </div>
 
-    
-    <div class="btns">
-    <a href="/listings/<%= listing._id%>/edit" class="btn btn-primary col-1 offset-2">EDIT </a>
+
+
+    <div class="row my-3">
+    <div class="col-12 col-md-8 mx-auto d-flex gap-2">
+    <!-- <div class="btns"> -->
+    <a href="/listings/<%= listing._id%>/edit" class="btn btn-primary flex-fill">EDIT </a>
     
 
-    <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST">
-        <button class=" btn btn-danger">DELETE</button>
+    <form action="/listings/<%=listing._id%>?_method=DELETE" method="POST" class="flex-fill">
+        <button class=" btn btn-danger w-100">DELETE</button>
     </form>
     </div>
+    </div>
+
+    <!-- </div> -->
  
 
     <hr>
 
 
-    <div class="col-8 offset-2 mb-3">
+
+<div class="row my-3">
+    <div class="col-12 col-md-8 mx-auto">
     <% if(currUser){%>
 
       <h4>Leave a Review</h4>
@@ -76,11 +87,20 @@
         <button class="btn btn-secondary">SUBMIT</button>
       </form>
       <%} %>
+    </div>
+    </div>
       <hr>
       
+      
      <% if(listing.reviews.length>0){%>
+      <div class="row my-3">
+        <div class="col-12 col-md-8 mx-auto">
+
+
     <p><b>ALL REVIEWS</b></p>
-      <div class="row">
+      <div class="row g-3">
+        
+
       <% for(review of listing.reviews){%>
           <div class="card col-6 ">
           <div class="card-body">
@@ -94,13 +114,17 @@
           </div>          
        <%}%>
         </div>
+        </div>
+        </div>
       <%}%>
 
 
-        <div class="col-8 offset-0">
+
+        <div class="row my-3">
+        <div class="col-12 col-md-8 mx-auto">
           <h3>Where you'll be!!</h3>
            
-          <div id="map" style="width: 800px; height: 300px"></div>
+          <div id="map" style="width: 100%; height: 300px"></div>
         
         <script>
     // ✅ Use coordinates from listing
@@ -124,6 +148,7 @@
       .openPopup();
 </script>
           </div>
+          </div>
 
     
   
@@ -135,7 +160,8 @@
 
 
 
-
+<div class="row my-3">
+<div class="col-12 col-md-8 mx-auto"> 
 <form action="/book/<%= listing._id %>" method="POST" id="bookingForm" class="p-3 border rounded bg-light shadow-sm">
   <h4>Book this place</h4>
 
@@ -154,8 +180,12 @@
     <span id="totalPrice" class="text-success fs-5">Rs0</span>
   </div>
 
+  <div>
   <button type="submit" class="btn btn-primary w-100">Book Now (Cash on Delivery)</button>
+  </div>
 </form>
+</div>
+</div>
 
 <script>
   const pricePerNight = <%= listing.price %>; // Price from DB
@@ -171,7 +201,7 @@
       const diffTime = checkOut - checkIn;
       const nights = diffTime / (1000 * 60 * 60 * 24); // days between
       const total = nights * pricePerNight;
-      totalPriceSpan.textContent = `$${total}`;
+      totalPriceSpan.textContent = `Rs${total}`;
     } else {
       totalPriceSpan.textContent = "Rs0";
     }
