@@ -32,20 +32,29 @@ This ensures that both customers and admins can fully manage destinations, makin
 🛠️ Technologies Used
 
 #FRONTEND
+
 * HTML5, CSS3, Bootstrap – for responsive UI
 * JavaScript (EJS Templates) – for dynamic rendering
+* 
 #BACKEND
+
 * Node.js – runtime environment
 * Express.js – backend framework
 * MongoDB Atlas – cloud database
 * Mongoose – ODM for MongoDB
+  
 #MAPS AND MEDIA
+
 * Leaflet.js – interactive maps
 * Cloudinary – image storage and management
+  
 #AUTHENTICATION AND SECURITY
+
 * Passport.js  – user authentication & password security
 * Express-Session – session management
+  
 #OTHER TOOLS
+
 * Git & GitHub – version control
 * Render  – deployment (or whichever platform you used)
 
@@ -74,24 +83,34 @@ node app.js
 The project is deployed on Render, a cloud hosting platform for web applications.
 
 1)Steps to Deploy:
+
 * Push Code to GitHub
 * Make sure your project is in a GitHub repository.
+  
 2)Create a New Web Service on Render
+  
 * Log in to Render
 * Click New → Web Service.
 * Connect your GitHub repository.
+
+
 3)Configure Settings
+  
 * Environment: Node
 * Build Command:npm install
 * Start Command:npm app.js
+  
 4)Set Environment Variables
+  
 * In Render dashboard, go to Environment tab.Add your keys (from .env file):
 CLOUD_NAME=your_cloudinary_name
 CLOUD_API_KEY=your_cloudinary_key
 CLOUD_API_SECRET=your_cloudinary_secret
 ATLASDB_URL=your_mongodb_atlas_url
 SECRET=session_secret_key
+
 5)Deploy & Access
+  
 * Click Deploy Web Service.
 * Once deployed, your app will be available at:https://your-app-name.onrender.com
 
@@ -121,10 +140,10 @@ You are free to use, modify, and distribute this software, provided that the ori
 
 CONTACT
 Nabanita Debnath
-Email-dnnabanita@gmail.com
-Github-
-Linkdin-
-projectLink-
+Email:-dnnabanita@gmail.com
+Github:-dnaba-9
+Linkdin:-https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=nabanita-debnath-524018336
+projectLink:-https://travel-app-vgj9.onrender.com
 
 
 
