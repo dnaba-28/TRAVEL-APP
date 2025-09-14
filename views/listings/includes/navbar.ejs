@@ -14,15 +14,32 @@
 }
 
 
-/* Make the toggle button white when clicked (expanded) */
-.navbar-toggler[aria-expanded="true"] {
-  background-color: white !important;
-  border-radius: 8px;  
+/* Make navbar collapse fullscreen when opened */
+.navbar-collapse {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;   /* full viewport height */
+  background-color: white; /* whole page becomes white */
+  z-index: 1050;   /* above everything */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* center menu vertically */
+  align-items: center;     /* center menu horizontally */
+  transition: all 0.3s ease-in-out;
 }
 
-/* Change the toggler icon to black when background is white */
-.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
-  filter: invert(1);
+/* Hide collapse when closed */
+.navbar-collapse.collapse:not(.show) {
+  display: none;
+}
+
+/* Style links inside fullscreen menu */
+.navbar-collapse .nav-link {
+  font-size: 1.5rem;
+  margin: 15px 0;
+  color: black !important; /* visible on white background */
 }
 
 
