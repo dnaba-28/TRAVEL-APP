@@ -14,6 +14,16 @@
 }
 
 
+/* Make the toggle button white when clicked (expanded) */
+.navbar-toggler[aria-expanded="true"] {
+  background-color: white !important;
+  border-radius: 8px;  
+}
+
+/* Change the toggler icon to black when background is white */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon {
+  filter: invert(1);
+}
 
 
 
