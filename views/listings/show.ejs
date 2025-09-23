@@ -127,7 +127,7 @@
           <div id="map" style="width: 100%; height: 300px"></div>
         
         <script>
-    // ✅ Use coordinates from listing
+    //  Use coordinates from listing
      const coords = <%- JSON.stringify(listing.geometry?.coordinates || [0,0]) %>;
   const lat = coords[1];
   const lon = coords[0];
@@ -136,12 +136,12 @@
 
     const map = L.map('map').setView([lat, lon], 9);
 
-    // ✅ Use OpenStreetMap tiles (via MapLibre style or OSM directly)
+    //  Use OpenStreetMap tiles 
     L.maplibreGL({
       style: 'https://tiles.openfreemap.org/styles/bright'
     }).addTo(map);
 
-    // ✅ Add marker
+    // Add marker
     L.marker([lat, lon])
       .addTo(map)
       .bindPopup("<%= listing.location %>, <%= listing.country %>")

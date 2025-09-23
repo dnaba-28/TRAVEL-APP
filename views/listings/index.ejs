@@ -1,10 +1,92 @@
 <% layout("listings/layouts/boilerplate") %>
+<style>
+#filters{
+    display: flex;
+    gap:25px;
+    padding-top: 10px;
+    padding-left: 10px;
+    margin-bottom: 0!important;
+    
+    
+}
+
+a{
+    text-decoration: none;
+    color:rgb(69, 3, 3);
+}
+</style>
 
 <body>
-    <!-- <h1>ALL LISTINGS</h1> -->
-    <!-- <form action="/listings/new" method="GET">
-        <button>create new listing!</button>
-    </form> -->
+    
+
+
+    <div id="filters">
+        <div class="filter">
+            <div><i class="fa-solid fa-house-chimney"></i></div>
+            <p><a href="/listings">Home</a></p>
+        </div>
+       <div class="filter">
+            <div><i class="fa-solid fa-hourglass-end"></i></div>
+            <p><a href="/listings">Trending</a></p>
+         </div>
+
+         <div class="filter">
+            <div><i class="fa-solid fa-mountain"></i></div>
+            <p><a href="/listings">Mountain</a></p>
+         </div>
+
+         <div class="filter">
+            <div><i class="fa-solid fa-bridge-water"></i></div>
+            <p><a href="/listings">Beach</a></p>
+         </div>
+
+            <div class="filter">
+            <div><i class="fa-solid fa-bed"></i></div>
+            <p><a href="/listings">Rooms</a></p>
+         </div>
+
+            <div class="filter">
+            <div><i class="fa-solid fa-city"></i></div>
+            <p><a href="/listings">iconic cities</a></p>
+         </div>
+
+            <div class="filter">
+            <div><i class="fa-solid fa-crown"></i></div>
+            <p><a href="/listings">castles</a></p>
+         </div>
+
+            <div class="filter">
+            <div><i class="fa-solid fa-person-swimming"></i></div>
+            <p><a href="/listings">Amazing pools</a></p>
+         </div>
+
+            <div class="filter">
+            <div><i class="fa-solid fa-fire"></i></div>
+            <p><a href="/listings">camping</a></p>
+         </div>
+
+            <div class="filter">
+            <div><i class="fa-solid fa-fan"></i></div>
+            <p><a href="/listings">arctic</a></p>
+         </div>
+
+            <div class="filter">
+            <div><i class="fa-solid fa-igloo"></i></div>
+            <p><a href="/listings">Domes</a></p>
+         </div>
+
+            <div class="filter">
+            <div><i class="fa-solid fa-sailboat"></i></div>
+            <p><a href="/listings">Boats</a></p>
+         </div>
+
+            
+
+         
+
+
+    </div>
+
     <div class="container my-4">
 
     <div id="filters">
