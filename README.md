@@ -1,64 +1,63 @@
-#WANDER APP
-📖 About the Project
+# WANDER APP
+## 📖 About the Project
 
 The Travel App is a full-stack web application designed for travel enthusiasts to explore, share, and manage travel destinations.To enhance the experience, the app integrates an interactive map using Leaflet, allowing users to visualize destinations directly on a map. Images are stored with Cloudinary, and data is managed using MongoDB Atlas.
 This project is built with Node.js, Express.js, MongoDB, EJS templates, and Leaflet maps, providing a smooth, modern, and responsive travel platform. The goal of this project is to create a platform where users can:
-* Discover beautiful travel spots around the world.
+*  Discover beautiful travel spots around the world.
 * Share their own experiences by adding new listings.
 * Upload photos and write descriptions of destinations.
 * Interact with the community through reviews and ratings.
 
-#Customer Features
+## Customer Features
 
-🔍 Browse Destinations – Explore travel spots with descriptions, images, and location details.
-🗺️ Interactive Map (Leaflet) – View listings on a dynamic, zoomable map.
-📝 Create Listings – Add new travel destinations with photos and descriptions.
-✏️ Manage Listings – Edit or delete your own destinations.
-📸 Image Uploads – Upload multiple images for each listing (via Cloudinary).
-💬 Reviews & Ratings – Leave feedback and rate destinations.
-🔐 User Accounts – Secure signup, login, and session-based authentication.
-📱 Responsive Design – Works smoothly on mobile, tablet, and desktop.
+* 🔍 Browse Destinations – Explore travel spots with descriptions, images, and location details.
+* 🗺️ Interactive Map (Leaflet) – View listings on a dynamic, zoomable map.
+* 📝 Create Listings – Add new travel destinations with photos and descriptions.
+* ✏️ Manage Listings – Edit or delete your own destinations.
+* 📸 Image Uploads – Upload multiple images for each listing (via Cloudinary).
+* 💬 Reviews & Ratings – Leave feedback and rate destinations.
+* 🔐 User Accounts – Secure signup, login, and session-based authentication.
+* 📱 Responsive Design – Works smoothly on mobile, tablet, and desktop.
 
-#Admin Features
+## Admin Features
 
-📦 Product Management (CRUD Functionality)
-The Travel App provides complete product management features, enabling users (and admins) to handle travel listings efficiently:
-➕ Create – Add new destinations with title, description, price, images, and location.
-👁️ Read – View all listings or a single listing with details and map integration.
-✏️ Update – Edit existing listings (update information, replace images, etc.).
-❌ Delete – Remove listings permanently.
-This ensures that both customers and admins can fully manage destinations, making the app dynamic and user-driven.
+* 📦 Product Management (CRUD Functionality)
+* ➕ Create – Add new destinations with title, description, price, images, and location.
+* 👁️ Read – View all listings or a single listing with details and map integration.
+* ✏️ Update – Edit existing listings (update information, replace images, etc.).
+* ❌ Delete – Remove listings permanently.
 
-🛠️ Technologies Used
+## 🛠️ Technologies Used
 
-#FRONTEND
+### FRONTEND
 
 * HTML5, CSS3, Bootstrap – for responsive UI
 * JavaScript (EJS Templates) – for dynamic rendering
-* 
-#BACKEND
+
+### BACKEND
 
 * Node.js – runtime environment
 * Express.js – backend framework
 * MongoDB Atlas – cloud database
 * Mongoose – ODM for MongoDB
   
-#MAPS AND MEDIA
+### MAPS AND MEDIA
 
 * Leaflet.js – interactive maps
 * Cloudinary – image storage and management
   
-#AUTHENTICATION AND SECURITY
+### AUTHENTICATION AND SECURITY
 
 * Passport.js  – user authentication & password security
 * Express-Session – session management
   
-#OTHER TOOLS
+### OTHER TOOLS
 
 * Git & GitHub – version control
 * Render  – deployment (or whichever platform you used)
 
-🚀 Getting Started
+## 🚀 Getting Started
+
 1. Clone the Repository
 git clone https://github.com/your-username/travel-app.git
 cd travel-app
@@ -114,36 +113,25 @@ SECRET=session_secret_key
 * Click Deploy Web Service.
 * Once deployed, your app will be available at:https://your-app-name.onrender.com
 
-🤝 Contributing
+## Contributing 🙏
 
-Contributions are always welcome! If you’d like to improve the Travel App, please follow these steps:
+Contributions, issues, and feature requests are welcome! Feel free to check the [issues page](https://github.com/SantanuDas7095/Ecommerce/issues).
 
-1)Fork the repository
-2) Create a new branch for your feature or fix:
-* git checkout -b feature-name
-3)Commit your changes with a clear message:
-* git commit -m "Added new feature"
-4)Push to your branch:
-* git push origin feature-name
-5)Open a Pull Request and describe your changes.
+1.  Fork the repository.
+2.  Create your feature branch (`git checkout -b feature/AmazingFeature`).
+3.  Commit your changes (`git commit -m 'feat: Add a new feature'`).
+4.  Push to the branch (`git push origin feature/AmazingFeature`).
+5.  Open a Pull Request.
 
-Contribution Guidelines
+## License 📜
 
-Follow clean code practices.
-Keep commits small and meaningful.
-Update documentation if needed.
-Be respectful in discussions and reviews.
+This project is licensed under the MIT License. See the `LICENSE` file for details.
 
-📜 License
-This project is licensed under the MIT License.
-You are free to use, modify, and distribute this software, provided that the original copyright notice and this permission notice are included in all copies or substantial portions of the software
+## Contact 📧
 
-CONTACT
-Nabanita Debnath
-Email:-dnnabanita@gmail.com
-Github:-dnaba-9
-Linkdin:-https://linkedin.com/comm/mynetwork/discovery-see-all?usecase=PEOPLE_FOLLOWS&followMember=nabanita-debnath-524018336
-projectLink:-https://travel-app-vgj9.onrender.com
+* Nabanita Debnath
+* Email : dnnabanita@gmail.com
+* **Github :** [Github](https://github.com/dnaba-28)
+* **Linkedin :** [Linkedin](https://www.linkedin.com/in/nabanita-debnath-524018336/)
 
-
-
+Project Link: [Travel App](https://travel-app-vgj9.onrender.com)
